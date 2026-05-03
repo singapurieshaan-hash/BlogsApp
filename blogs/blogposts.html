@@ -1,0 +1,22 @@
+{% extends 'blogs/base.html' %}
+
+{% block content }
+
+<p> {{ blog.name }}</p>
+
+<p> Blog Posts: </p>
+<p>
+    <ul> 
+        {% for pot in post %}
+        <li> 
+        <p>{{ pot.title }}</p>
+        <p> {{ pot.date_added|date:'M d, Y H:i' }}</p>
+        <p> {{ pot.text|linebreaks }}</p>
+        <li>
+        {% empty %}
+        <p>No posts to see.</p>
+        {% endfor %}
+    </ul>
+</p>
+
+{% endblock content %}

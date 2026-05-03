@@ -1,0 +1,33 @@
+{% extends 'blogs/base.html' %}
+
+{% block content %}
+<head>
+    <style>
+        .title {
+            display: inline;
+        }
+    </style>
+
+</head>
+
+<p> {{ blog.name }}</p>
+
+<p> Blog Posts: </p>
+<p>
+    <ul> 
+        {% for pot in post %}
+        <li> 
+        <p class="title"> {{ pot.title|linebreaks }} </p>
+        <p class='title'> ({{ pot.date_added|date:'M d, Y. H:i.' }})</p>
+        <p> {{ pot.text|linebreaks }}</p>
+        <p><a href="{% url 'blogs:edit_post' pot.id %}">Edit Post.</a></p>
+        </li>
+        {% empty %}
+        <li>No posts to see.</li>
+        {% endfor %}
+    </ul>
+</p>
+
+<p><a href="{% url 'blogs:new_blogposts' blog.id %}">Add an Post.</a></p>
+
+{% endblock content %}
