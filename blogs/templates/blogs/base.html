@@ -1,5 +1,12 @@
+{% load static %} 
+<head>
+<link rel="stylesheet" href="{% static 'blogs/style.css' %}?v=1">
+</head>
+
+<body>
+<nav>
 <p> 
-    <a href= "{% url 'blogs:index' %}">Blog</a>
+    <a href= "{% url 'blogs:index' %}" class="logo">Blog</a>
     <a href= "{% url 'blogs:blogpage' %}">BlogPage</a>
     {% if user.is_authenticated %}
       Hello, {{ user.username }}.
@@ -18,3 +25,6 @@
     <button name="submit">Log out</button>
   </form>
 {% endif %} 
+
+</nav>
+</body>
