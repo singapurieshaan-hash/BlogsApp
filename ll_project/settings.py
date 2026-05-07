@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-hd#k^$u*xqdet^h869a&kr#_t55rbmdw)2sn#$or+w&$&47h-k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost","127.0.0.1", ".vercel.app"]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.vercel.app",
+]
 
 
 # Application definition
@@ -119,8 +123,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 #My settings. 
 LOGIN_REDIRECT_URL = 'blogs:index' 
 LOGOUT_REDIRECT_URL = 'blogs:index'
 LOGIN_URL = 'accounts:login' 
+
